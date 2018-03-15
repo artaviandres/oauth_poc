@@ -12,7 +12,7 @@ class App extends Component {
       accounts: [],
       properties: []
     }
-    // this.handleFetchAccounts = this.handleFetchAccounts.bind(this);
+    this.handleFetchAccounts = this.handleFetchAccounts.bind(this);
   }
 
   gapiRequest(url) {
@@ -43,7 +43,6 @@ class App extends Component {
   handleFetchProperties(account) {
     let properties = []
     this.state.accounts.map(item => {
-      console.log(item.id);
       this.gapiRequest('https://www.googleapis.com/analytics/v3/management/accounts/' + item.id + '/webproperties')
         .then((res) => res.data.items.map(item => {
           // this.setState({
@@ -60,9 +59,10 @@ class App extends Component {
           }
           properties.push(test);
         }),
-        this.setState({
-          properties
-        })
+        console.log("hey", properties)
+        // this.setState({
+        //   properties
+        // })
       )
     })
   }
