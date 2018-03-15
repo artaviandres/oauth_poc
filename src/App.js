@@ -36,25 +36,25 @@ class App extends Component {
   handleFetchAccounts(accounts) {
     this.setState({
       accounts
-    });
-    // }, this.handleFetchProperties(this.state.accounts));
+    // });
+    }, this.handleFetchProperties(this.state.accounts));
   }
 
-  // handleFetchProperties(properties) {
-  //   this.state.accounts.map(item => {
-  //     console.log(item.id);
-  //     this.gapiRequest('https://www.googleapis.com/analytics/v3/management/accounts/' + item.id + '/webproperties')
-  //       // .then((res) => console.log(res));
-  //       .then((res) => this.setState({
-  //         properties: res.data.items.map(item => ({
-  //           name: item.name,
-  //           id: item.id,
-  //           accountId: item.accountId
-  //         }))
-  //       })
-  //       )
-  //   })
-  // }
+  handleFetchProperties(properties) {
+    this.state.accounts.map(item => {
+      console.log(item.id);
+      this.gapiRequest('https://www.googleapis.com/analytics/v3/management/accounts/' + item[0].id + '/webproperties')
+        // .then((res) => console.log(res));
+        .then((res) => this.setState({
+          properties: res.data.items.map(item => ({
+            name: item.name,
+            id: item.id,
+            accountId: item.accountId
+          }))
+        })
+        )
+    })
+  }
 
   gaData() {
     this.gapiRequest('https://www.googleapis.com/analytics/v3/management/accounts')
