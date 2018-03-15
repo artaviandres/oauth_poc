@@ -59,10 +59,9 @@ class App extends Component {
           }
           properties.push(test);
         }),
-        console.log("hey", properties)
-        // this.setState({
-        //   properties
-        // })
+        this.setState({
+          properties: properties
+        })
       )
     })
   }
