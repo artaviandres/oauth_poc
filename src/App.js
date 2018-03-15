@@ -13,6 +13,7 @@ class App extends Component {
       properties: []
     }
     this.handleFetchAccounts = this.handleFetchAccounts.bind(this);
+    this.handleFetchProperties = this.handleFetchProperties.bind(this);
   }
 
   gapiRequest(url) {
