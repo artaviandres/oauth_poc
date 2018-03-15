@@ -43,7 +43,7 @@ class App extends Component {
   handleFetchProperties(properties) {
     this.state.accounts.map(item => {
       console.log(item.id);
-      this.gapiRequest('https://www.googleapis.com/analytics/v3/management/accounts/' + item[0].id + '/webproperties')
+      this.gapiRequest('https://www.googleapis.com/analytics/v3/management/accounts/' + item.id + '/webproperties')
         // .then((res) => console.log(res));
         .then((res) => this.setState({
           properties: res.data.items.map(item => ({
