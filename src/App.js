@@ -40,16 +40,17 @@ class App extends Component {
   }
 
   handleFetchProperties(properties) {
-    this.state.accounts.map(item => {
-      this.gapiRequest('https://www.googleapis.com/analytics/v3/management/accounts/' + item.id + '/webproperties')
-        .then((res) => this.setState({
-          properties: res.data.items.map(item => ({
-            name: item.name,
-            id: item.id,
-            accountId: item.accountId
-          }))
-        })
-        )
+    this.state.accounts.item.map(item => {
+      console.log(item);
+      // this.gapiRequest('https://www.googleapis.com/analytics/v3/management/accounts/' + item.id + '/webproperties')
+      //   .then((res) => this.setState({
+      //     properties: res.data.items.map(item => ({
+      //       name: item.name,
+      //       id: item.id,
+      //       accountId: item.accountId
+      //     }))
+      //   })
+      //   )
     })
   }
 
