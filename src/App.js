@@ -45,14 +45,16 @@ class App extends Component {
       console.log(item.id);
       this.gapiRequest('https://www.googleapis.com/analytics/v3/management/accounts/' + item.id + '/webproperties')
         .then((res) => 
+        res.data.items.map(item => (
           this.setState({
-            properties: res.data.items.map(item => (console.log(item), {
+            properties: {
               name: item.name,
               id: item.id,
               accountId: item.accountId
-            }))
+            }
           })
-        )
+        ))
+      )
     })
   }
 
